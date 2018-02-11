@@ -35,27 +35,22 @@ public class Main {
         PrintStream out = new PrintStream(System.out);
 
         String currentString;
-        boolean end;
+
         while (true) {
-            if (in.hasNextLine()) {
+newLine:    if (in.hasNextLine()) {
                 currentString = in.nextLine();
                 if (currentString.equals("")) {
                     in.close();
                     out.close();
                     break;
                 }
-                end = false;
                 String[] parsingString = currentString.split("[ ;,\\s]");
                 for (Pattern pattern : patterns) {
                     for (String source : parsingString) {
                         if (pattern.matcher(source).matches()) {
                             out.println(currentString);
-                            end = true;
-                            break;
+                            break newLine;
                         }
-                    }
-                    if (end){
-                        break;
                     }
                 }
             }
