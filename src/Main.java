@@ -40,8 +40,6 @@ public class Main {
 newLine:    if (in.hasNextLine()) {
                 currentString = in.nextLine();
                 if (currentString.equals("")) {
-                    in.close();
-                    out.close();
                     break;
                 }
                 String[] parsingString = currentString.split("[ ;,\\s]");
